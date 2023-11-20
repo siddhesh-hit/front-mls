@@ -98,8 +98,9 @@ const HomePage = () => {
 
   useEffect(() => {
     const newLang = queryParams.get("lang");
-    console.log(newLang);
-    setLang(newLang);
+    if (newLang) {
+      setLang(newLang);
+    }
   }, [queryParams]);
 
   // console.log(lang);
@@ -136,54 +137,62 @@ const HomePage = () => {
                   }}
                 />
               </div>
-              {data[lang === "mr" ? "marathi" : "english"].map((item) => (
-                <>
-                  <Row className="justify-content-center mt-3">
-                    <div className="col-lg-6 text-center mt-2">
-                      <img src={item.image} alt=" " className="image1" />
-                    </div>
-                    <div className="col-lg-6 ">
-                      <div className="section-headtop mb-3">{item.title}</div>
+              {data[lang === "mr" ? "marathi" : "english"].map(
+                (item, index, array) => (
+                  <React.Fragment key={index}>
+                    <Row
+                      className={`justify-content-center mt-3 ${
+                        index % 2 === 1 ? "flex-row-reverse" : ""
+                      }`}
+                    >
+                      <div className="col-lg-6 text-center mt-2">
+                        <img src={item.image} alt=" " className="image1" />
+                      </div>
+                      <div className="col-lg-6 ">
+                        <div className="section-headtop mb-3">{item.title}</div>
+                        <hr
+                          style={{
+                            width: "20%",
+                            border: "none",
+                            height: "5px",
+                            opacity: "1",
+                            marginTop: "0",
+                            marginBottom: "15px",
+                            background:
+                              "linear-gradient(to right, green, yellow)",
+                          }}
+                        />
+                        <div className="about-info">{item.description}</div>
+                        <Button
+                          variant="primary"
+                          className="pdf-btn mt-3"
+                          style={{
+                            width: "25%",
+                            backgroundColor: "blue",
+                            borderRadius: "5px",
+                            fontFamily: "Popins",
+                          }}
+                        >
+                          View PDF <i className="fa fa-eye"></i>
+                        </Button>
+                      </div>
+                    </Row>
+                    {index !== array.length - 1 && (
                       <hr
+                        className="mt-5"
                         style={{
-                          width: "20%",
                           border: "none",
-                          height: "5px",
+                          height: "1px",
+                          backgroundColor: "#000000",
                           opacity: "1",
                           marginTop: "0",
                           marginBottom: "15px",
-                          background:
-                            "linear-gradient(to right, green, yellow)",
                         }}
                       />
-                      <div className="about-info">{item.description}</div>
-                      <Button
-                        variant="primary"
-                        className="pdf-btn mt-3"
-                        style={{
-                          width: "25%",
-                          backgroundColor: "blue",
-                          borderRadius: "5px",
-                          fontFamily: "Popins",
-                        }}
-                      >
-                        View PDF <i className="fa fa-eye"></i>
-                      </Button>
-                    </div>
-                  </Row>
-                  <hr
-                    className="mt-5"
-                    style={{
-                      border: "none",
-                      height: "1px",
-                      backgroundColor: "#000000",
-                      opacity: "1",
-                      marginTop: "0",
-                      marginBottom: "15px",
-                    }}
-                  />
-                </>
-              ))}
+                    )}
+                  </React.Fragment>
+                )
+              )}
             </div>
           </Container>
         </section>
