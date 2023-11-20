@@ -1,14 +1,17 @@
 import React from "react";
 import { NavDropdown, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 const Topbar = () => {
   let fontSize = 16;
+  const location = useLocation();
+  const navigate = useNavigate();
+  const queryParams = new URLSearchParams(location.search);
 
   function increaseFont() {
     fontSize += 1;
-    if (fontSize < 34){
-      updateFontSize();}
-    
+    if (fontSize < 34) {
+      updateFontSize();
+    }
   }
   function keepFont() {
     fontSize = 16;
@@ -16,13 +19,20 @@ const Topbar = () => {
   }
   function decreaseFont() {
     fontSize -= 1;
-    if(fontSize >1){
+    if (fontSize > 1) {
       updateFontSize();
     }
   }
   function updateFontSize() {
     document.body.style.fontSize = fontSize + "px";
   }
+
+  const handleLanguage = (lang) => {
+    // set language in url
+    queryParams.set("lang", lang);
+    navigate(`?${queryParams.toString()}`);
+  };
+
   return (
     <>
       {/* <Navbar
@@ -75,8 +85,10 @@ const Topbar = () => {
                   title="Language"
                   className="nav-link-top mt-0 mb-0"
                 >
-                  <NavDropdown.Item href="/">Marathi</NavDropdown.Item>
-                  <NavDropdown.Item href="HomePageEng">
+                  <NavDropdown.Item onClick={() => handleLanguage("mr")}>
+                    Marathi
+                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={() => handleLanguage("en")}>
                     English
                   </NavDropdown.Item>
                 </NavDropdown>

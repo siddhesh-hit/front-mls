@@ -5,11 +5,17 @@ import Row from "react-bootstrap/Row";
 import aboutimg from "../assets/about/_MG_5358 3.jpg";
 import aboutimg2 from "../assets/about/_MG_5358 2 (1).jpg";
 import aboutimg3 from "../assets/about/_MG_5358 4.jpg";
-import { Container ,Button} from "react-bootstrap";
-import homevidhan from "../assets/_MG_5418 1.jpg";
+import { Container, Button } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+
 const HomePage = () => {
   let currentSlide = 0;
   const galleryItems = document.querySelectorAll(".gallery-item");
+
+  const [lang, setLang] = useState("mr");
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
 
   function showSlide(index) {
     galleryItems.forEach((item, i) => {
@@ -36,6 +42,68 @@ const HomePage = () => {
   }
 
   showSlide(currentSlide);
+
+  const data = {
+    title: {
+      marathi: "विधानमंडळ",
+      english: "Legislative Assembly",
+    },
+    marathi: [
+      {
+        title: "प्रास्ताविक",
+        description:
+          "महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे. महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे. महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे. महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आह. महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे.े",
+        image: aboutimg,
+        documents: "",
+      },
+      {
+        title: "पूर्वइतिहास",
+        description:
+          "महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे. महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे. महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे. महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आह. महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे.े",
+        image: aboutimg2,
+        documents: "",
+      },
+      {
+        title: "विधान परिषद निर्देशिका",
+        description:
+          "महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे. महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे. महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे. महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आह. महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे.े",
+        image: aboutimg3,
+        documents: "",
+      },
+    ],
+    english: [
+      {
+        title: "Introduction",
+        description:
+          "The Maharashtra Vidhan Sabha or the Maharashtra Legislative Assembly is the lower house of the legislature of the Indian state of Maharashtra. It is situated in the Nariman Point area of South Mumbai in the capital Mumbai. The Maharashtra Assembly is the lower house of the legislature of the Indian stateAssembly is the lower house of the legislature of the Indian state The Maharashtra Assembly is the lower house of the legislature of the Indian stateAssembly.",
+        image: aboutimg,
+        documents: "",
+      },
+      {
+        title: "Prehistory",
+        description:
+          "The Maharashtra Vidhan Sabha or the Maharashtra Legislative Assembly is the lower house of the legislature of the Indian state of Maharashtra. It is situated in the Nariman Point area of South Mumbai in the capital Mumbai. The Maharashtra Assembly is the lower house of the legislature of the Indian stateAssembly is the lower house of the legislature of the Indian state The Maharashtra Assembly is the lower house of the legislature of the Indian stateAssembly.",
+        image: aboutimg2,
+        documents: "",
+      },
+      {
+        title: "Legislative Council Directory",
+        description:
+          "The Maharashtra Vidhan Sabha or the Maharashtra Legislative Assembly is the lower house of the legislature of the Indian state of Maharashtra. It is situated in the Nariman Point area of South Mumbai in the capital Mumbai. The Maharashtra Assembly is the lower house of the legislature of the Indian stateAssembly is the lower house of the legislature of the Indian state The Maharashtra Assembly is the lower house of the legislature of the Indian stateAssembly.",
+        image: aboutimg3,
+        documents: "",
+      },
+    ],
+  };
+
+  useEffect(() => {
+    const newLang = queryParams.get("lang");
+    console.log(newLang);
+    setLang(newLang);
+  }, [queryParams]);
+
+  // console.log(lang);
+
   return (
     <>
       <div>
@@ -55,7 +123,7 @@ const HomePage = () => {
                   textAlign: "center",
                 }}
               >
-                विधानमंडळ
+                {lang === "mr" ? data.title.marathi : data.title.english}
                 <hr
                   style={{
                     width: "20%",
@@ -65,172 +133,57 @@ const HomePage = () => {
                     marginTop: "0",
                     marginBottom: "15px",
                     background: "linear-gradient(to right, green, yellow)",
-                    opacity: "1",
                   }}
                 />
               </div>
-              <Row className="justify-content-center mt-3">
-                <div className="col-lg-6 text-center mt-2">
-                  <img src={aboutimg} alt=" " className="image1" />
-                </div>
-                <div className="col-lg-6 ">
-                  <div className="section-headtop mb-3">प्रास्ताविक</div>
+              {data[lang === "mr" ? "marathi" : "english"].map((item) => (
+                <>
+                  <Row className="justify-content-center mt-3">
+                    <div className="col-lg-6 text-center mt-2">
+                      <img src={item.image} alt=" " className="image1" />
+                    </div>
+                    <div className="col-lg-6 ">
+                      <div className="section-headtop mb-3">{item.title}</div>
+                      <hr
+                        style={{
+                          width: "20%",
+                          border: "none",
+                          height: "5px",
+                          opacity: "1",
+                          marginTop: "0",
+                          marginBottom: "15px",
+                          background:
+                            "linear-gradient(to right, green, yellow)",
+                        }}
+                      />
+                      <div className="about-info">{item.description}</div>
+                      <Button
+                        variant="primary"
+                        className="pdf-btn mt-3"
+                        style={{
+                          width: "25%",
+                          backgroundColor: "blue",
+                          borderRadius: "5px",
+                          fontFamily: "Popins",
+                        }}
+                      >
+                        View PDF <i className="fa fa-eye"></i>
+                      </Button>
+                    </div>
+                  </Row>
                   <hr
+                    className="mt-5"
                     style={{
-                      width: "20%",
                       border: "none",
-                      height: "5px",
+                      height: "1px",
+                      backgroundColor: "#000000",
                       opacity: "1",
                       marginTop: "0",
                       marginBottom: "15px",
-                      background: "linear-gradient(to right, green, yellow)",
-                      opacity: "1",
                     }}
                   />
-                  <div className="about-info">
-                    महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या
-                    महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे.
-                    महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या
-                    महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे.
-                    महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या
-                    महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे.
-                    महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या
-                    महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आह.
-                    महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या
-                    महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे.े
-                  </div>
-                  {/* <div className="mt-3">
-                    <a href="#">
-                      <b style={{ fontSize: "15px", color: "blue" }}>
-                        अधिक वाचा{" "}
-                      </b>
-                      <i
-                        className="fa-solid fa-chevrons-right"
-                        style={{ color: " #e11305" }}
-                      ></i>
-                    </a>
-                  </div> */}
-                  <Button
-                    variant="primary"
-                    className="pdf-btn mt-3"
-                    style={{
-                      width: "25%",
-                      backgroundColor: "blue",
-                      borderRadius: "5px",
-                      fontFamily: "Popins",
-                    }}
-                  >
-                    View PDF <i className="fa fa-eye"></i>
-                  </Button>
-                </div>
-              </Row>
-              <hr
-                className="mt-5"
-                style={{
-                  border: "none",
-                  height: "1px",
-                  backgroundColor: "#000000",
-                  opacity: "1",
-                  marginTop: "0",
-                  marginBottom: "15px",
-                }}
-              />
-              <Row className="justify-content-center mt-5 mb-3">
-                <div className="col-lg-6  mt-2">
-                  <div className="section-headtop mb-3">प्रागैतिहासिक</div>
-                  <div className="about-info">
-                    महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या
-                    महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे.
-                    महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या
-                    महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे.
-                    महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या
-                    महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे.
-                    महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या
-                    महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आह.
-                    महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या
-                    महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे.े
-                  </div>
-                  {/* <div className="mt-3">
-                    <a href="#">
-                      <b style={{ fontSize: "15px", color: "blue" }}>
-                        अधिक वाचा{" "}
-                      </b>
-                      <i
-                        className="fa-solid fa-chevrons-right"
-                        style={{ color: " #e11305" }}
-                      ></i>
-                    </a>
-                  </div> */}
-                  <Button
-                    variant="primary"
-                    className="pdf-btn mt-3"
-                    style={{
-                      width: "25%",
-                      backgroundColor: "blue",
-                      borderRadius: "5px",
-                    }}
-                  >
-                    View PDF <i className="fa fa-eye"></i>
-                  </Button>
-                </div>
-                <div className="col-lg-6 ">
-                  <img src={aboutimg2} alt=" " className="image1" />
-                </div>
-              </Row>
-              <hr
-                className="mt-5"
-                style={{
-                  border: "none",
-                  height: "1px",
-                  marginTop: "0",
-                  marginBottom: "15px",
-                  backgroundColor: "#000000",
-                }}
-              />
-              <Row className="justify-content-center mt-5">
-                <div className="col-lg-6 text-center mt-2">
-                  <img src={aboutimg3} alt=" " className="image1" />
-                </div>
-                <div className="col-lg-6 ">
-                  <div className="section-headtop mb-3">
-                    विधान परिषद मार्गदर्शक
-                  </div>
-                  <div className="about-info">
-                    महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या
-                    महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे.
-                    महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या
-                    महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे.
-                    महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या
-                    महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे.
-                    महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या
-                    महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आह.
-                    महाराष्ट्र विधानसभा किंवा महाराष्ट्र विधानसभा हे भारताच्या
-                    महाराष्ट्र राज्याच्या विधानसभेचे कनिष्ठ सभागृह आहे.े
-                  </div>
-                  {/* <div className="mt-3">
-                    <a href="#">
-                      <b style={{ fontSize: "15px", color: "blue" }}>
-                        अधिक वाचा{" "}
-                      </b>
-                      <i
-                        className="fa-solid fa-chevrons-right"
-                        style={{ color: " #e11305" }}
-                      ></i>
-                    </a>
-                  </div> */}
-                  <Button
-                    variant="primary"
-                    className="pdf-btn mt-3"
-                    style={{
-                      width: "25%",
-                      backgroundColor: "blue",
-                      borderRadius: "5px",
-                    }}
-                  >
-                    View PDF <i className="fa fa-eye"></i>
-                  </Button>
-                </div>
-              </Row>
+                </>
+              ))}
             </div>
           </Container>
         </section>
