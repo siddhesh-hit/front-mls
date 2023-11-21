@@ -126,8 +126,6 @@ const HomePage = () => {
     }
   }, [queryParams]);
 
-  console.log(data);
-
   return (
     <>
       <div>
@@ -217,6 +215,7 @@ const HomePage = () => {
                               }
                               target="_blank"
                               rel="noreferrer"
+                              className="text-white"
                             >
                               View PDF <i className="fa fa-eye"></i>
                             </a>
